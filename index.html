@@ -15,8 +15,9 @@
             --white: #ffffff;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --rounded: 8px;
-            --rounded-full: 9999px;
+            --transition: all 0.3s ease;
         }
+
         
         * {
             margin: 0;
@@ -45,6 +46,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            padding: 15px 0;
         }
         
         .header-container {
@@ -56,11 +58,14 @@
         
         .logo {
             font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary-blue);
             text-decoration: none;
         }
-        
+        .logo span {
+            color: var(--text-dark);
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -85,7 +90,19 @@
             color: var(--text-light);
             font-size: 0.9rem;
         }
+        .contact-email i {
+            color: var(--primary-blue);
+        }
         
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+
         /* Hero Section */
         .hero {
             padding: 80px 0;
@@ -119,8 +136,10 @@
         }
         
         .cta-button:hover {
-            background-color: var(--dark-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
+
         
         .tool-icons {
             display: flex;
@@ -128,6 +147,9 @@
             flex-wrap: wrap;
             gap: 30px;
             margin-top: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+
         }
         
         .tool-icon {
@@ -143,34 +165,58 @@
             font-size: 24px;
         }
         
-        /* Search */
-        .search-container {
-            max-width: 700px;
-            margin: -30px auto 60px;
+                /* Search */
+        .search-section {
+            padding: 30px 0;
+            background-color: var(--white);
+            margin-top: -40px;
+            border-radius: var(--rounded);
+            box-shadow: var(--shadow);
             position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .search-container {
+            padding: 0 20px;
         }
         
         .search-bar {
-            width: 100%;
+            display: flex;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .search-bar input {
+            flex: 1;
             padding: 15px 20px;
-            border-radius: var(--rounded-full);
-            border: 1px solid var(--light-blue);
-            font-size: 1rem;
-            box-shadow: var(--shadow);
-            padding-right: 50px;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--rounded) 0 0 var(--rounded);
+            font-size: 16px;
+            outline: none;
+            transition: var(--transition);
         }
         
-        .search-bar:focus {
-            outline: 2px solid var(--primary-blue);
+        .search-bar input:focus {
+            border-color: var(--primary-blue);
         }
         
-        .search-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--primary-blue);
+        .search-bar button {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 var(--rounded) var(--rounded) 0;
+            cursor: pointer;
+            transition: var(--transition);
         }
+        
+        .search-bar button:hover {
+            background-color: var(--dark-blue);
+        }
+
         
         /* Tool Sections */
         .section {
@@ -318,8 +364,60 @@
             color: #94a3b8;
             font-size: 0.8rem;
         }
+        /* Search Results */
+        .search-results {
+            display: none;
+            background-color: var(--white);
+            border-radius: var(--rounded);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-results h3 {
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+
+        .search-results ul {
+            list-style: none;
+        }
+
+        .search-results ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .search-results ul li:last-child {
+            border-bottom: none;
+        }
+
+        .search-results ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .search-results ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tool-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
         
-        /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -330,6 +428,10 @@
                 gap: 15px;
             }
             
+            .hero {
+                padding: 60px 0;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
             }
@@ -338,8 +440,12 @@
                 font-size: 1rem;
             }
             
-            .footer-container {
-                grid-template-columns: 1fr;
+            .tool-icons {
+                gap: 20px;
+            }
+            
+            .search-section {
+                margin-top: -30px;
             }
             
             .section-header h2 {
@@ -347,28 +453,58 @@
             }
         }
         
-        @media (max-width: 480px) {
-            nav ul {
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .contact-email {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .search-bar {
                 flex-direction: column;
-                align-items: center;
-                gap: 10px;
+            }
+            
+            .search-bar input {
+                border-radius: var(--rounded);
+                margin-bottom: 10px;
+            }
+            
+            .search-bar button {
+                border-radius: var(--rounded);
+                padding: 15px;
             }
             
             .tools-grid {
                 grid-template-columns: 1fr;
             }
             
-            .hero {
-                padding: 60px 0;
+            .footer-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">Smart  Tool</a>
+            <a href="#" class="logo">Smart<span>Tool</span></a>
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -379,6 +515,9 @@
             <div class="contact-email">
                 <span>smartoolfun@gmail.com</span>
             </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
@@ -400,19 +539,28 @@
     </section>
 
     <!-- Search -->
-    <div class="container">
+    <section class="search-section">
         <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search a tool and fun game...">
-            <div class="search-icon">🔍</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search a tool..." id="searchInput">
+                <button type="submit" id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <h3>Search Results</h3>
+                <ul id="resultsList">
+                    <!-- Results will be populated here -->
+                </ul>
+            </div>
         </div>
-    </div>
+    </section>
 
+    
     <!-- Tool Sections -->
     <div class="container">
         <!-- Image Tools -->
         <section class="section">
             <div class="section-header">
-                <h2>🖼 Image Tools and fun game</h2>
+                <h2>🖼 Image Tools</h2>
                 <p>Edit, convert and optimize your images with our free online tools</p>
             </div>
             <div class="tools-grid">
@@ -857,5 +1005,85 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        // Search functionality
+        document.getElementById('searchButton').addEventListener('click', function() {
+            performSearch();
+        });
+        
+        // Also search when Enter key is pressed
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            const resultsList = document.getElementById('resultsList');
+            
+            // Clear previous results
+            resultsList.innerHTML = '';
+            
+            if (searchTerm.trim() === '') {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+            
+            // Get all tool cards
+            const toolCards = document.querySelectorAll('.tool-card');
+            let foundResults = false;
+            
+            toolCards.forEach(card => {
+                const toolName = card.querySelector('h3').textContent.toLowerCase();
+                const toolDesc = card.querySelector('p').textContent.toLowerCase();
+                
+                if (toolName.includes(searchTerm) || toolDesc.includes(searchTerm)) {
+                    foundResults = true;
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = '#' + card.closest('.tools-section').id;
+                    link.textContent = toolName;
+                    link.onclick = function() {
+                        // Scroll to the tool section
+                        card.scrollIntoView({ behavior: 'smooth' });
+                        // Highlight the card
+                        card.style.boxShadow = '0 0 0 3px var(--primary-blue)';
+                        setTimeout(() => {
+                            card.style.boxShadow = 'var(--shadow)';
+                        }, 2000);
+                        resultsContainer.style.display = 'none';
+                    };
+                    listItem.appendChild(link);
+                    resultsList.appendChild(listItem);
+                }
+            });
+            
+            if (foundResults) {
+                resultsContainer.style.display = 'block';
+            } else {
+                const listItem = document.createElement('li');
+                listItem.textContent = 'No tools found matching your search.';
+                resultsList.appendChild(listItem);
+                resultsContainer.style.display = 'block';
+            }
+        }
+        
+        // Close search results when clicking outside
+        document.addEventListener('click', function(event) {
+            const searchContainer = document.querySelector('.search-container');
+            if (!searchContainer.contains(event.target)) {
+                document.getElementById('searchResults').style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
