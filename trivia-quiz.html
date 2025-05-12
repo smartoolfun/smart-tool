@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz | Multi-Tool Website</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f9ff;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 119, 255, 0.1);
+            padding: 30px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .quiz-header h1 {
+            color: #0066ff;
+            margin-bottom: 10px;
+        }
+
+        .quiz-header p {
+            color: #666;
+        }
+
+        /* Settings Section */
+        .quiz-settings {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .setting-option {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .setting-option label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #0066ff;
+        }
+
+        .setting-option select {
+            padding: 10px;
+            border: 2px solid #0066ff;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: white;
+            color: #333;
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: #0066ff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0052cc;
+            transform: translateY(-2px);
+        }
+
+        /* Quiz Area */
+        .quiz-area {
+            display: none;
+        }
+
+        .quiz-progress {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0066ff;
+            font-weight: bold;
+        }
+
+        .question-container {
+            margin-bottom: 30px;
+        }
+
+        #question-text {
+            color: #0066ff;
+            margin-bottom: 20px;
+        }
+
+        .answer-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .answer-options button {
+            padding: 12px;
+            border: 2px solid #0066ff;
+            border-radius: 5px;
+            background-color: white;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .answer-options button:hover {
+            background-color: #e6f0ff;
+        }
+
+        .answer-options button.selected {
+            background-color: #0066ff;
+            color: white;
+        }
+
+        .answer-options button.correct {
+            background-color: #00cc66;
+            color: white;
+            border-color: #00cc66;
+        }
+
+        .answer-options button.incorrect {
+            background-color: #ff3333;
+            color: white;
+            border-color: #ff3333;
+        }
+
+        /* Results Section */
+        .quiz-results {
+            text-align: center;
+            display: none;
+        }
+
+        .quiz-results h2 {
+            color: #0066ff;
+            margin-bottom: 20px;
+        }
+
+        #score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066ff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .quiz-container {
+                padding: 20px;
+            }
+            
+            .quiz-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <header class="quiz-header">
+            <h1>Trivia Challenge</h1>
+            <p>Test your knowledge with our fun quiz!</p>
+        </header>
+        
+        <div class="quiz-settings">
+            <div class="setting-option">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="9">General Knowledge</option>
+                    <option value="18">Science</option>
+                    <option value="21">Sports</option>
+                    <option value="22">Geography</option>
+                    <option value="23">History</option>
+                </select>
+            </div>
+            
+            <div class="setting-option">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            
+            <button id="start-quiz" class="btn">Start Quiz</button>
+        </div>
+        
+        <div class="quiz-area" style="display: none;">
+            <div class="quiz-progress">
+                Question <span id="current-question">1</span> of <span id="total-questions">10</span>
+            </div>
+            
+            <div class="question-container">
+                <h2 id="question-text">Question text goes here</h2>
+                <div id="answer-options" class="answer-options">
+                    <!-- Answer buttons will be inserted here by JavaScript -->
+                </div>
+            </div>
+            
+            <button id="next-question" class="btn" style="display: none;">Next Question</button>
+        </div>
+        
+        <div class="quiz-results" style="display: none;">
+            <h2>Quiz Completed!</h2>
+            <p>Your score: <span id="score">0</span>/<span id="total">10</span></p>
+            <button id="restart-quiz" class="btn">Take Another Quiz</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const startBtn = document.getElementById('start-quiz');
+            const nextBtn = document.getElementById('next-question');
+            const restartBtn = document.getElementById('restart-quiz');
+            const quizSettings = document.querySelector('.quiz-settings');
+            const quizArea = document.querySelector('.quiz-area');
+            const resultsArea = document.querySelector('.quiz-results');
+            const questionText = document.getElementById('question-text');
+            const answerOptions = document.getElementById('answer-options');
+            const currentQuestionEl = document.getElementById('current-question');
+            const totalQuestionsEl = document.getElementById('total-questions');
+            const scoreEl = document.getElementById('score');
+            const totalEl = document.getElementById('total');
+            
+            // Quiz Variables
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let questions = [];
+            let selectedCategory = '9';
+            let selectedDifficulty = 'easy';
+            
+            // Event Listeners
+            startBtn.addEventListener('click', startQuiz);
+            nextBtn.addEventListener('click', showNextQuestion);
+            restartBtn.addEventListener('click', resetQuiz);
+            
+            document.getElementById('category').addEventListener('change', function(e) {
+                selectedCategory = e.target.value;
+            });
+            
+            document.getElementById('difficulty').addEventListener('change', function(e) {
+                selectedDifficulty = e.target.value;
+            });
+            
+            // Functions
+            async function startQuiz() {
+                // Show loading state
+                startBtn.textContent = 'Loading...';
+                startBtn.disabled = true;
+                
+                try {
+                    // Fetch questions from OpenTriviaDB API
+                    const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${selectedCategory}&difficulty=${selectedDifficulty}&type=multiple`);
+                    const data = await response.json();
+                    
+                    if (data.response_code === 0) {
+                        questions = data.results;
+                        totalQuestionsEl.textContent = questions.length;
+                        totalEl.textContent = questions.length;
+                        
+                        // Hide settings, show quiz area
+                        quizSettings.style.display = 'none';
+                        quizArea.style.display = 'block';
+                        
+                        // Display first question
+                        displayQuestion();
+                    } else {
+                        alert('Failed to load questions. Please try again.');
+                        resetQuiz();
+                    }
+                } catch (error) {
+                    console.error('Error fetching questions:', error);
+                    alert('An error occurred. Please try again.');
+                    resetQuiz();
+                } finally {
+                    startBtn.textContent = 'Start Quiz';
+                    startBtn.disabled = false;
+                }
+            }
+            
+            function displayQuestion() {
+                const currentQuestion = questions[currentQuestionIndex];
+                currentQuestionEl.textContent = currentQuestionIndex + 1;
+                
+                // Decode HTML entities in question and answers
+                questionText.textContent = decodeHtmlEntities(currentQuestion.question);
+                
+                // Combine correct and incorrect answers
+                const allAnswers = [
+                    currentQuestion.correct_answer,
+                    ...currentQuestion.incorrect_answers
+                ];
+                
+                // Shuffle answers
+                const shuffledAnswers = shuffleArray(allAnswers);
+                
+                // Clear previous answers
+                answerOptions.innerHTML = '';
+                
+                // Create answer buttons
+                shuffledAnswers.forEach(answer => {
+                    const button = document.createElement('button');
+                    button.textContent = decodeHtmlEntities(answer);
+                    button.addEventListener('click', selectAnswer);
+                    answerOptions.appendChild(button);
+                });
+            }
+            
+            function selectAnswer(e) {
+                const selectedButton = e.target;
+                const currentQuestion = questions[currentQuestionIndex];
+                const correctAnswer = decodeHtmlEntities(currentQuestion.correct_answer);
+                
+                // Disable all answer buttons
+                Array.from(answerOptions.children).forEach(button => {
+                    button.disabled = true;
+                    if (button.textContent === correctAnswer) {
+                        button.classList.add('correct');
+                    }
+                });
+                
+                // Check if answer is correct
+                if (selectedButton.textContent === correctAnswer) {
+                    selectedButton.classList.add('correct');
+                    score++;
+                } else {
+                    selectedButton.classList.add('incorrect');
+                }
+                
+                // Show next button
+                nextBtn.style.display = 'block';
+            }
+            
+            function showNextQuestion() {
+                currentQuestionIndex++;
+                
+                if (currentQuestionIndex < questions.length) {
+                    nextBtn.style.display = 'none';
+                    displayQuestion();
+                } else {
+                    showResults();
+                }
+            }
+            
+            function showResults() {
+                quizArea.style.display = 'none';
+                resultsArea.style.display = 'block';
+                scoreEl.textContent = score;
+            }
+            
+            function resetQuiz() {
+                currentQuestionIndex = 0;
+                score = 0;
+                questions = [];
+                
+                quizSettings.style.display = 'flex';
+                quizArea.style.display = 'none';
+                resultsArea.style.display = 'none';
+                nextBtn.style.display = 'none';
+            }
+            
+            // Helper Functions
+            function decodeHtmlEntities(text) {
+                const textArea = document.createElement('textarea');
+                textArea.innerHTML = text;
+                return textArea.value;
+            }
+            
+            function shuffleArray(array) {
+                const newArray = [...array];
+                for (let i = newArray.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+                }
+                return newArray;
+            }
+        });
+    </script>
+</body>
+</html>
