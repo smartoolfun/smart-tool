@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Converter Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0faff;
+      color: #003366;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .converter-container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .converter-container h2 {
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+
+    .drop-zone {
+      border: 2px dashed #007BFF;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .drop-zone.dragover {
+      background-color: #e0f0ff;
+    }
+
+    .file-info, .status {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="converter-container">
+    <h2>Audio Converter Tool</h2>
+    <div class="drop-zone" id="drop-zone">Drop audio file here or click to upload</div>
+    <input type="file" id="file-input" accept="audio/*" style="display: none" />
+    <div class="file-info" id="file-info"></div>
+    <select id="format-select">
+      <option value="mp3">Convert to MP3</option>
+      <option value="wav">Convert to WAV</option>
+      <option value="ogg">Convert to OGG</option>
+    </select>
+    <button id="convert-btn">Convert</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const fileInfo = document.getElementById('file-info');
+    const formatSelect = document.getElementById('format-select');
+    const convertBtn = document.getElementById('convert-btn');
+    const status = document.getElementById('status');
+
+    let selectedFile = null;
+
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      handleFile(e.dataTransfer.files[0]);
+    });
+
+    fileInput.addEventListener('change', () => {
+      handleFile(fileInput.files[0]);
+    });
+
+    function handleFile(file) {
+      if (!file) return;
+      if (!file.type.startsWith('audio/')) {
+        fileInfo.textContent = 'Please upload a valid audio file.';
+        selectedFile = null;
+        return;
+      }
+      selectedFile = file;
+      fileInfo.textContent = `Selected file: ${file.name}`;
+      status.textContent = '';
+    }
+
+    convertBtn.addEventListener('click', () => {
+      if (!selectedFile) {
+        status.textContent = 'Please select an audio file first.';
+        return;
+      }
+      const format = formatSelect.value;
+      status.textContent = `Simulating conversion to ${format.toUpperCase()}...`;
+      setTimeout(() => {
+        status.textContent = `Conversion to ${format.toUpperCase()} completed. [Download not available in demo]`;
+      }, 2000);
+
+      // Note: Actual audio conversion requires backend or WASM-based libs (e.g. ffmpeg.js)
+    });
+  </script>
+</body>
+</html>
