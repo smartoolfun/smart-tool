@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puzzle Game Tool</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0faff;
+      color: #003366;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .puzzle-container {
+      text-align: center;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+      padding: 30px;
+    }
+
+    h2 {
+      color: #007BFF;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 4px;
+      margin: 0 auto 20px;
+    }
+
+    .tile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #e0f0ff;
+      border: 2px solid #007BFF;
+      border-radius: 8px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .tile:hover {
+      background-color: #b3e0ff;
+    }
+
+    .empty {
+      background-color: transparent;
+      border: none;
+      cursor: default;
+    }
+
+    .controls {
+      margin-top: 10px;
+    }
+
+    .controls button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 0 5px;
+    }
+
+    .controls button:hover {
+      background-color: #0056b3;
+    }
+
+    .info {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 400px) {
+      .grid {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+      }
+
+      .tile {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="puzzle-container">
+    <h2>Sliding Puzzle Game</h2>
+    <div class="grid" id="grid"></div>
+    <div class="controls">
+      <button onclick="shuffleTiles()">Shuffle</button>
+    </div>
+    <div class="info">
+      <span id="moves">Moves: 0</span>
+    </div>
+  </div>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const movesCounter = document.getElementById('moves');
+    let tiles = [];
+    let emptyIndex = 8;
+    let moves = 0;
+
+    function initTiles() {
+      tiles = Array.from({ length: 9 }, (_, i) => i);
+      renderTiles();
+    }
+
+    function renderTiles() {
+      grid.innerHTML = '';
+      tiles.forEach((tile, index) => {
+        const div = document.createElement('div');
+        div.className = 'tile';
+        if (tile === 0) {
+          div.classList.add('empty');
+        } else {
+          div.textContent = tile;
+          div.onclick = () => moveTile(index);
+        }
+        grid.appendChild(div);
+      });
+    }
+
+    function moveTile(index) {
+      const validMoves = [
+        emptyIndex - 1,
+        emptyIndex + 1,
+        emptyIndex - 3,
+        emptyIndex + 3
+      ];
+
+      if (validMoves.includes(index) &&
+          Math.abs(emptyIndex % 3 - index % 3) + Math.abs(Math.floor(emptyIndex / 3) - Math.floor(index / 3)) === 1) {
+        [tiles[emptyIndex], tiles[index]] = [tiles[index], tiles[emptyIndex]];
+        emptyIndex = index;
+        moves++;
+        movesCounter.textContent = `Moves: ${moves}`;
+        renderTiles();
+        checkWin();
+      }
+    }
+
+    function shuffleTiles() {
+      do {
+        tiles = [...Array(9).keys()].sort(() => Math.random() - 0.5);
+        emptyIndex = tiles.indexOf(0);
+      } while (!isSolvable(tiles));
+      moves = 0;
+      movesCounter.textContent = 'Moves: 0';
+      renderTiles();
+    }
+
+    function isSolvable(arr) {
+      let invCount = 0;
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[i] && arr[j] && arr[i] > arr[j]) invCount++;
+        }
+      }
+      return invCount % 2 === 0;
+    }
+
+    function checkWin() {
+      if (tiles.slice(0, 8).every((val, i) => val === i + 1) && tiles[8] === 0) {
+        setTimeout(() => alert(`Congratulations! You solved it in ${moves} moves.`), 100);
+      }
+    }
+
+    initTiles();
+  </script>
+</body>
+</html>
