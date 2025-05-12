@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Compressor Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0faff;
+      color: #003366;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .compressor-container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 51, 102, 0.1);
+      padding: 30px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .compressor-container h2 {
+      color: #007BFF;
+      margin-bottom: 20px;
+    }
+
+    .drop-zone {
+      border: 2px dashed #007BFF;
+      border-radius: 10px;
+      padding: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .drop-zone.dragover {
+      background-color: #e0f0ff;
+    }
+
+    .file-info, .status {
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="compressor-container">
+    <h2>Video Compressor Tool</h2>
+    <div class="drop-zone" id="drop-zone">Drop video file here or click to upload</div>
+    <input type="file" id="file-input" accept="video/*" style="display: none;" />
+    <div class="file-info" id="file-info"></div>
+    <select id="compression-level">
+      <option value="low">Low Compression</option>
+      <option value="medium">Medium Compression</option>
+      <option value="high">High Compression</option>
+    </select>
+    <button id="compress-btn">Compress</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const fileInfo = document.getElementById('file-info');
+    const compressionLevel = document.getElementById('compression-level');
+    const compressBtn = document.getElementById('compress-btn');
+    const status = document.getElementById('status');
+
+    let selectedFile = null;
+
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('dragover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('dragover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      handleFile(e.dataTransfer.files[0]);
+    });
+
+    fileInput.addEventListener('change', () => {
+      handleFile(fileInput.files[0]);
+    });
+
+    function handleFile(file) {
+      if (!file || !file.type.startsWith('video/')) {
+        fileInfo.textContent = 'Please upload a valid video file.';
+        selectedFile = null;
+        return;
+      }
+      selectedFile = file;
+      fileInfo.textContent = `Selected file: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+      status.textContent = '';
+    }
+
+    compressBtn.addEventListener('click', () => {
+      if (!selectedFile) {
+        status.textContent = 'Please select a video file first.';
+        return;
+      }
+
+      const level = compressionLevel.value;
+      status.textContent = `Compressing at ${level} level...`;
+
+      setTimeout(() => {
+        let reduction = level === 'low' ? 0.1 : level === 'medium' ? 0.3 : 0.5;
+        const originalSizeMB = selectedFile.size / 1024 / 1024;
+        const compressedSizeMB = originalSizeMB * (1 - reduction);
+
+        status.textContent = `Compression complete. Estimated compressed size: ${compressedSizeMB.toFixed(2)} MB. [Download not available in demo]`;
+      }, 3000);
+
+      // For real compression, integrate ffmpeg.js or backend endpoint here.
+    });
+  </script>
+</body>
+</html>
