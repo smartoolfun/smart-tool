@@ -1,24 +1,25 @@
-<!DOCTYPE html>
+  
+    
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Tool - Your Daily Tools and Fun Game</title>
+    <title>Smart Tools - Your Daily Tools, All in One Place</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --primary-blue: #2563eb;
             --dark-blue: #1e40af;
             --light-blue: #93c5fd;
-            --bg-blue: #f8fafc;
+            --bg-gray: #f8fafc;
             --text-dark: #1e293b;
             --text-light: #64748b;
             --white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --rounded: 8px;
             --transition: all 0.3s ease;
         }
-
         
         * {
             margin: 0;
@@ -28,7 +29,7 @@
         }
         
         body {
-            background-color: var(--bg-blue);
+            background-color: var(--bg-gray);
             color: var(--text-dark);
             line-height: 1.6;
         }
@@ -54,33 +55,33 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 24px;
             font-weight: 700;
             color: var(--primary-blue);
             text-decoration: none;
         }
+        
         .logo span {
             color: var(--text-dark);
         }
-
+        
         nav ul {
             display: flex;
             list-style: none;
             gap: 25px;
         }
         
-        nav a {
+        nav ul li a {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
         
-        nav a:hover {
+        nav ul li a:hover {
             color: var(--primary-blue);
         }
         
@@ -89,8 +90,9 @@
             align-items: center;
             gap: 5px;
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 14px;
         }
+        
         .contact-email i {
             color: var(--primary-blue);
         }
@@ -103,36 +105,37 @@
             color: var(--primary-blue);
             cursor: pointer;
         }
-
+        
         /* Hero Section */
         .hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
             padding: 80px 0;
             text-align: center;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
         }
         
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color: var(--text-dark);
+            line-height: 1.2;
         }
         
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
+            font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto 30px;
+            opacity: 0.9;
         }
         
         .cta-button {
             display: inline-block;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            padding: 12px 24px;
-            border-radius: var(--rounded-full);
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            border-radius: var(--rounded);
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: var(--transition);
             margin-bottom: 40px;
         }
         
@@ -140,33 +143,28 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
-
         
         .tool-icons {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             gap: 30px;
-            margin-top: 30px;
+            flex-wrap: wrap;
             max-width: 800px;
             margin: 0 auto;
-
         }
         
         .tool-icon {
+            background-color: rgba(255, 255, 255, 0.1);
             width: 60px;
             height: 60px;
-            background-color: var(--white);
-            border-radius: var(--rounded);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow);
-            color: var(--primary-blue);
             font-size: 24px;
         }
         
-                /* Search */
+        /* Search */
         .search-section {
             padding: 30px 0;
             background-color: var(--white);
@@ -217,22 +215,21 @@
         .search-bar button:hover {
             background-color: var(--dark-blue);
         }
-
         
-        /* Tool Sections */
-        .tools.section {
-            margin-bottom: 60px;
+        /* Tools Sections */
+        .tools-section {
+            padding: 60px 0;
         }
         
         .section-header {
-            margin-bottom: 30px;
             text-align: center;
+            margin-bottom: 40px;
         }
         
         .section-header h2 {
             font-size: 1.8rem;
-            color: var(--text-dark);
             margin-bottom: 10px;
+            color: var(--text-dark);
         }
         
         .section-header p {
@@ -244,15 +241,15 @@
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
         
         .tool-card {
             background-color: var(--white);
             border-radius: var(--rounded);
-            padding: 20px;
+            padding: 25px;
             box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: var(--transition);
         }
         
         .tool-card:hover {
@@ -260,16 +257,17 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
         
-        .tool-icon-small {
-            width: 40px;
-            height: 40px;
-            background-color: #dbeafe;
+        .tool-icon-container {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
             color: var(--primary-blue);
+            font-size: 20px;
         }
         
         .tool-card h3 {
@@ -280,92 +278,99 @@
         .tool-card p {
             color: var(--text-light);
             font-size: 0.9rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .tool-button {
             display: inline-block;
-            background-color: #dbeafe;
-            color: var(--primary-blue);
-            padding: 8px 16px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 8px 20px;
             border-radius: var(--rounded);
             text-decoration: none;
-            font-weight: 500;
             font-size: 0.9rem;
-            transition: background-color 0.3s;
+            font-weight: 500;
+            transition: var(--transition);
         }
         
         .tool-button:hover {
-            background-color: #bfdbfe;
+            background-color: var(--dark-blue);
         }
         
         /* Footer */
         footer {
             background-color: var(--text-dark);
             color: var(--white);
-            padding: 50px 0 20px;
+            padding: 60px 0 30px;
         }
         
         .footer-container {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
         
         .footer-logo {
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: 700;
             color: var(--white);
-            text-decoration: none;
             margin-bottom: 15px;
-            display: inline-block;
+            display: block;
+        }
+        
+        .footer-logo span {
+            color: var(--light-blue);
         }
         
         .footer-about p {
-            color: #cbd5e1;
+            opacity: 0.8;
             margin-bottom: 20px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
         
         .footer-contact p {
-            color: #cbd5e1;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            opacity: 0.8;
         }
         
         .footer-links h3 {
             font-size: 1.1rem;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            color: var(--light-blue);
         }
         
         .footer-links ul {
             list-style: none;
         }
         
-        .footer-links li {
-            margin-bottom: 8px;
+        .footer-links ul li {
+            margin-bottom: 10px;
         }
         
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
+        .footer-links ul li a {
             color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links ul li a:hover {
+            opacity: 1;
+            color: var(--light-blue);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
-            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
-       
+
         /* Search Results */
         .search-results {
             display: none;
@@ -406,7 +411,7 @@
         .search-results ul li a:hover {
             color: var(--primary-blue);
         }
-
+        
         /* Responsive */
         @media (max-width: 992px) {
             .hero h1 {
@@ -502,11 +507,11 @@
     </style>
 </head>
 <body>
-
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">Smart<span>Tool</span></a>
+            <a href="#" class="logo">Smart<span>Tools</span></a>
+            
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -514,33 +519,49 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+            
             <div class="contact-email">
+                <i class="fas fa-envelope"></i>
                 <span>smartoolfun@gmail.com</span>
             </div>
+            
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
-
+    
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
-            <h1>Your Daily Tools and Fun Game, All in One Place</h1>
-            <p>Convert, calculate, compress, and fun game simplify your everyday tasks — fast and free.</p>
-            <a href="#" class="cta-button">Explore Tools and Fun Game</a>
+            <h1>Your Daily Tools, All in One Place</h1>
+            <p>Convert, calculate, compress, and simplify your everyday tasks — fast and free.</p>
+            <a href="#tools" class="cta-button">Explore Tools</a>
+            
             <div class="tool-icons">
-                <div class="tool-icon">🖼️</div>
-                <div class="tool-icon">📄</div>
-                <div class="tool-icon">🧮</div>
-                <div class="tool-icon">🎨</div>
-                <div class="tool-icon">🔤</div>
-                <div class="tool-icon">🎮</div>
+                <div class="tool-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-font"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-video"></i>
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Search -->
+    
+    <!-- Search Section -->
     <section class="search-section">
         <div class="search-container">
             <div class="search-bar">
