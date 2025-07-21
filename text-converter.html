@@ -2,28 +2,26 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J7B16QEP0T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J7B16QEP0T');
-</script>
-<script>
-    <meta property="og:title" content="SmarTool - Your Tool for Success">
-    <meta property="og:description" content="Discover innovative tools at SmarTool to boost productivity.">
-    <meta property="og:image" content="https://www.smartool.fun/images/og-image.jpg">
-    <meta property="og:url" content="https://www.smartool.fun">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SmarTool - Your Tool for Success">
-    <meta name="twitter:description" content="Discover innovative tools at SmarTool to boost productivity.">
-    <meta name="twitter:image" content="https://www.smartool.fun/images/og-image.jpg">
-</script>
-  <link rel="icon" href="IMG_1343.png" type="image/x-icon">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7B16QEP0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J7B16QEP0T');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text Converter</title>
+  <meta name="description" content="Convert text to uppercase, lowercase, sentence case, or capitalized case with SmarTool's Text Case Converter.">
+  <meta property="og:title" content="SmarTool - Text Case Converter">
+  <meta property="og:description" content="Discover innovative tools at SmarTool to boost productivity with our Text Case Converter.">
+  <meta property="og:image" content="https://www.smartool.fun/images/og-image.jpg">
+  <meta property="og:url" content="https://www.smartool.fun/text-converter">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SmarTool - Text Case Converter">
+  <meta name="twitter:description" content="Discover innovative tools at SmarTool to boost productivity with our Text Case Converter.">
+  <meta name="twitter:image" content="https://www.smartool.fun/images/og-image.jpg">
+  <link rel="icon" href="IMG_1343.png" type="image/x-icon" alt="SmarTool Favicon">
+  <title>Text Case Converter - SmarTool</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -32,6 +30,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
     }
 
     h2 {
@@ -39,10 +38,10 @@
       text-align: center;
     }
 
-    #textBox {
+    #inputArea {
       width: 90%;
       max-width: 500px;
-      min-height: 150px;
+      height: 120px;
       padding: 10px;
       font-size: 16px;
       border-radius: 8px;
@@ -55,115 +54,64 @@
     }
 
     button {
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 10px 15px;
+      font-size: 14px;
       border: none;
-      background-color: #007bff;
+      background: #007bff;
       color: white;
       border-radius: 8px;
       cursor: pointer;
-      margin-bottom: 15px;
+      margin: 5px;
     }
 
     button:hover {
-      background-color: #0056b3;
-    }
-
-    #output {
-      font-size: 16px;
-      margin-top: 20px;
-      color: #333;
-    }
-
-    .input-label {
-      margin-bottom: 10px;
+      background: #0056b3;
     }
   </style>
 </head>
-</body>
-  
-  
-  <div style="text-align:center;">
+<body>
   <h2>Text Case Converter</h2>
-  <input type="text" id="inputArea" style="width:90%;max-width:500px;height:120px;padding:10px;font-size:16px;border-radius:8px;border:1px solid #ccc;" placeholder="Enter text here..."><br>
+  <textarea id="inputArea" placeholder="Enter or paste your text here..." aria-label="Text input for case conversion"></textarea>
+  <div>
+    <button onclick="toUpper()">UPPERCASE</button>
+    <button onclick="toLower()">lowercase</button>
+    <button onclick="toSentence()">Sentence case</button>
+    <button onclick="toCapital()">Capitalized Case</button>
+    <button onclick="clearText()">Clear</button>
+  </div>
 
-  <button onclick="toUpper()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">UPPERCASE</button>
-  <button onclick="toLower()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">lowercase</button>
-  <button onclick="toSentence()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">Sentence case</button>
-  <button onclick="toCapital()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">Capitalized Case</button>
-  <button onclick="clearText()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">Clear</button>
-</div>
-
-<script type="text/javascript">
-//<![CDATA[
-function toUpper() {
-  var t = document.getElementById("inputArea");
-  t.value = t.value.toUpperCase();
-}
-
-function toLower() {
-  var t = document.getElementById("inputArea");
-  t.value = t.value.toLowerCase();
-}
-
-function toSentence() {
-  var t = document.getElementById("inputArea");
-  let txt = t.value.toLowerCase();
-  t.value = txt.charAt(0).toUpperCase() + txt.slice(1);
-}
-
-function toCapital() {
-  var t = document.getElementById("inputArea");
-  let words = t.value.toLowerCase().split(" ");
-  for (let i = 0; i < words.length; i++) {
-    if (words[i]) {
-      words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+  <script>
+    function toUpper() {
+      var t = document.getElementById("inputArea");
+      t.value = t.value.toUpperCase();
     }
-  }
-  t.value = words.join(" ");
-}
 
-function clearText() {
-  var t = document.getElementById("inputArea");
-  t.value = "";
-}
-//]]>
-</script>
+    function toLower() {
+      var t = document.getElementById("inputArea");
+      t.value = t.value.toLowerCase();
+    }
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f0f8ff;
-    padding: 20px;
-    text-align: center;
-  }
+    function toSentence() {
+      var t = document.getElementById("inputArea");
+      let txt = t.value.toLowerCase();
+      t.value = txt.charAt(0).toUpperCase() + txt.slice(1);
+    }
 
-  input[type="text"] {
-    width: 90%;
-    max-width: 500px;
-    height: 120px;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-  }
+    function toCapital() {
+      var t = document.getElementById("inputArea");
+      let words = t.value.toLowerCase().split(" ");
+      for (let i = 0; i < words.length; i++) {
+        if (words[i]) {
+          words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+        }
+      }
+      t.value = words.join(" ");
+    }
 
-  button {
-    margin: 5px;
-    padding: 10px 15px;
-    font-size: 14px;
-    border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-
-  button:hover {
-    background: #0056b3;
-  }
-</style>
-
-  
-  
+    function clearText() {
+      var t = document.getElementById("inputArea");
+      t.value = "";
+    }
+  </script>
+</body>
+</html>
