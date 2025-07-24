@@ -2,26 +2,29 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7B16QEP0T"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-J7B16QEP0T');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J7B16QEP0T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J7B16QEP0T');
+</script>
+<script>
     <meta property="og:title" content="SmarTool - Your Tool for Success">
     <meta property="og:description" content="Discover innovative tools at SmarTool to boost productivity.">
     <meta property="og:image" content="https://www.smartool.fun/images/og-image.jpg">
-    <meta property="og:url" content="https://www.smartool.fun/">
+    <meta property="og:url" content="https://www.smartool.fun">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SmarTool - Your Tool for Success">
     <meta name="twitter:description" content="Discover innovative tools at SmarTool to boost productivity.">
     <meta name="twitter:image" content="https://www.smartool.fun/images/og-image.jpg">
-    <link rel="icon" href="/images/IMG_1343.png" type="image/x-icon">
+</script>
+    <link rel="icon" href="IMG_1343.png" type="image/x-icon">
     <link rel="canonical" href="https://www.smartool.fun/" />
-    <title>Free Online Tools, All in One Place - Convert, Calculate, Compress</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free online Tools, All in One Place Convert, calculate and compress</title>
     <meta name="description" content="Convert, calculate, compress, and simplify your everyday tasks with Smart Tool – your all-in-one solution.">
     <meta name="keywords" content="convert, calculate, compress, online tools, smart tool">
     <meta name="author" content="Smart Tool Team">
@@ -529,21 +532,24 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="/" class="logo">Smart<span>Tools</span></a>
+            <a href="#" class="logo">Smart<span>Tools</span></a>
+            
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="/tools.html">Our Tools</a></li>
-                    <li><a href="/article.html">Articles</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                    <li><a href="/about.html">About</a></li>
-                </ul>
+                    <li><a href="tools.html">Our Tools</a></li>
+                    <li><a href="article.html">Articles</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">about</a></li>
+               </ul>
             </nav>
+            
             <div class="contact-email">
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:smartoolfun@gmail.com">smartoolfun@gmail.com</a>
+                <span>smartoolfun@gmail.com</span>
             </div>
-            <button class="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+            
+            <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -555,13 +561,26 @@
             <h1>Your Daily Tools, All in One Place</h1>
             <p>Convert, calculate, compress, and simplify your everyday tasks — fast and free.</p>
             <a href="#tools" class="cta-button">Explore Tools</a>
+            
             <div class="tool-icons">
-                <div class="tool-icon"><i class="fas fa-image"></i></div>
-                <div class="tool-icon"><i class="fas fa-file-alt"></i></div>
-                <div class="tool-icon"><i class="fas fa-calculator"></i></div>
-                <div class="tool-icon"><i class="fas fa-font"></i></div>
-                <div class="tool-icon"><i class="fas fa-code"></i></div>
-                <div class="tool-icon"><i class="fas fa-video"></i></div>
+                <div class="tool-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-font"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="tool-icon">
+                    <i class="fas fa-video"></i>
+                </div>
             </div>
         </div>
     </section>
@@ -569,16 +588,19 @@
     <!-- Search Section -->
     <section class="search-section">
         <div class="search-container">
-            <form class="search-bar" role="search">
-                <input type="text" id="searchInput" placeholder="Search a tool..." aria-label="Search for a tool">
-                <button type="submit" id="searchButton" aria-label="Search"><i class="fas fa-search"></i></button>
-            </form>
+            <div class="search-bar">
+                <input type="text" placeholder="Search a tool..." id="searchInput">
+                <button type="submit" id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
             <div class="search-results" id="searchResults">
                 <h3>Search Results</h3>
-                <ul id="resultsList"></ul>
+                <ul id="resultsList">
+                    <!-- Results will be populated here -->
+                </ul>
             </div>
         </div>
     </section>
+
 
     <!-- Main Content Container -->
     <div class="container">
@@ -586,44 +608,44 @@
         <section class="tools-section" id="tools">
             <div class="section-header">
                 <h2>🖼 Image Tools</h2>
-                <p>Edit, convert, and optimize your images with our free online tools</p>
+                <p>Edit, convert and optimize your images with our free online tools</p>
             </div>
             <div class="tools-grid">
                 <div class="tool-card">
                     <div class="tool-icon-container">🖼️</div>
                     <h3>Image Converter</h3>
-                    <p>Convert between JPG, PNG, GIF, WEBP, and more</p>
-                    <a href="/image-converter.html" class="tool-button">Use Tool</a>
+                    <p>Convert between JPG, PNG, GIF, WEBP and more</p>
+                    <a href="image-converter.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🗜️</div>
                     <h3>Image Compressor</h3>
                     <p>Reduce image file size without losing quality</p>
-                    <a href="/image-compressor.html" class="tool-button">Use Tool</a>
+                    <a href="image-compressor.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">📏</div>
                     <h3>Image Resizer</h3>
                     <p>Resize images to any dimensions</p>
-                    <a href="/image-resizer.html" class="tool-button">Use Tool</a>
+                    <a href="image-resizer.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">✂️</div>
                     <h3>Image Cropper</h3>
                     <p>Crop images to remove unwanted areas</p>
-                    <a href="/image-cropper.html" class="tool-button">Use Tool</a>
+                    <a href="image-cropper.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🔤</div>
                     <h3>Image to Text (OCR)</h3>
                     <p>Extract text from images accurately</p>
-                    <a href="/image-to-text.html" class="tool-button">Use Tool</a>
+                    <a href="image-to-text.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🔄</div>
                     <h3>Image Rotator/Flipper</h3>
                     <p>Rotate or flip images in any direction</p>
-                    <a href="/image-rotator.html" class="tool-button">Use Tool</a>
+                    <a href="image-rotator.html" class="tool-button">Use Tool</a>
                 </div>
             </div>
         </section>
@@ -635,47 +657,47 @@
                 <p>Manage and convert your documents with ease</p>
             </div>
             <div class="tools-grid">
-                <div class="tool-card">
+              <div class="tool-card">
                     <div class="tool-icon-container">📑</div>
                     <h3>Word to PDF</h3>
-                    <p>Convert Word documents to PDF</p>
-                    <a href="/word-to-pdf.html" class="tool-button">Use Tool</a>
+                    <p>Convert between Word documents to PDF</p>
+                    <a href="Word-to-pdf.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">📑</div>
                     <h3>PDF to Word</h3>
-                    <p>Convert PDF to Word documents</p>
-                    <a href="/pdf-to-word.html" class="tool-button">Use Tool</a>
+                    <p>Convert between PDF and Word documents</p>
+                    <a href="pdf-to-word.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🗜️</div>
                     <h3>PDF Compressor</h3>
                     <p>Reduce PDF file size while maintaining quality</p>
-                    <a href="/pdf-compressor.html" class="tool-button">Use Tool</a>
+                    <a href="pdf-compressor.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">✂️</div>
                     <h3>PDF Merger & Splitter</h3>
                     <p>Combine or split PDF files easily</p>
-                    <a href="/pdf-merger.html" class="tool-button">Use Tool</a>
+                    <a href="pdf-merger.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🔄</div>
                     <h3>Document Converter</h3>
                     <p>Convert between various document formats</p>
-                    <a href="/document-converter.html" class="tool-button">Use Tool</a>
+                    <a href="document-converter.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🔒</div>
                     <h3>PDF Lock/Unlock</h3>
                     <p>Add or remove passwords from PDF files</p>
-                    <a href="/pdf-lock-unlock.html" class="tool-button">Use Tool</a>
+                    <a href="pdf-lock-unlock.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">✍️</div>
                     <h3>eSign PDF</h3>
                     <p>Add electronic signatures to documents</p>
-                    <a href="/esign-pdf.html" class="tool-button">Use Tool</a>
+                    <a href="esign-pdf.html" class="tool-button">Use Tool</a>
                 </div>
             </div>
         </section>
@@ -691,37 +713,37 @@
                     <div class="tool-icon-container">🧪</div>
                     <h3>Scientific Calculator</h3>
                     <p>Advanced calculator for complex calculations</p>
-                    <a href="/scientific-calculator.html" class="tool-button">Use Tool</a>
+                    <a href="scientific-calculator.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🎂</div>
                     <h3>Age Calculator</h3>
                     <p>Calculate age from birth date</p>
-                    <a href="/age-calculator.html" class="tool-button">Use Tool</a>
+                    <a href="age-calculator.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">⚖️</div>
                     <h3>BMI Calculator</h3>
                     <p>Calculate your Body Mass Index</p>
-                    <a href="/bmi-calculator.html" class="tool-button">Use Tool</a>
+                    <a href="bmi-calculator.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">💲</div>
                     <h3>Loan EMI Calculator</h3>
                     <p>Calculate monthly loan payments</p>
-                    <a href="/emi-calculator.html" class="tool-button">Use Tool</a>
+                    <a href="emi-calculator.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🏷️</div>
                     <h3>GST Calculator</h3>
                     <p>Calculate Goods and Services Tax</p>
-                    <a href="/gst-calculator.html" class="tool-button">Use Tool</a>
+                    <a href="gst-calculator.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">💱</div>
                     <h3>Currency Converter</h3>
                     <p>Convert between world currencies</p>
-                    <a href="/currency-converter.html" class="tool-button">Use Tool</a>
+                    <a href="currency-calculator.html" class="tool-button">Use Tool</a>
                 </div>
             </div>
         </section>
@@ -736,38 +758,38 @@
                 <div class="tool-card">
                     <div class="tool-icon-container">🔠</div>
                     <h3>Text Case Converter</h3>
-                    <p>Change text between uppercase, lowercase, and more</p>
-                    <a href="/text-converter.html" class="tool-button">Use Tool</a>
+                    <p>Change text between uppercase, lowercase and more</p>
+                    <a href="text-converter.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">📊</div>
                     <h3>Word & Character Counter</h3>
-                    <p>Count words, characters, sentences, and more</p>
-                    <a href="/word-counter.html" class="tool-button">Use Tool</a>
+                    <p>Count words, characters, sentences and more</p>
+                    <a href="word-counter.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🧹</div>
                     <h3>Remove Duplicate Lines</h3>
                     <p>Clean up text by removing duplicate lines</p>
-                    <a href="/remove-duplicate-lines.html" class="tool-button">Use Tool</a>
+                    <a href="remove-duplicate-line.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🔀</div>
                     <h3>Text Sorter</h3>
                     <p>Sort lines of text alphabetically or numerically</p>
-                    <a href="/text-sorter.html" class="tool-button">Use Tool</a>
+                    <a href="text-sorter.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">⏪</div>
                     <h3>Text Reverser</h3>
                     <p>Reverse text or word order</p>
-                    <a href="/text-reverser.html" class="tool-button">Use Tool</a>
+                    <a href="text-reverser.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🔐</div>
                     <h3>Text Encryptor/Decryptor</h3>
                     <p>Encrypt and decrypt text securely</p>
-                    <a href="/text-encryptor.html" class="tool-button">Use Tool</a>
+                    <a href="text-encryptor.html" class="tool-button">Use Tool</a>
                 </div>
             </div>
         </section>
@@ -783,37 +805,37 @@
                     <div class="tool-icon-container">💻</div>
                     <h3>HTML/CSS/JS Minifier</h3>
                     <p>Minify your code to reduce file size</p>
-                    <a href="/html-css-minifier.html" class="tool-button">Use Tool</a>
+                    <a href="html-ccs-minifire.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">{}</div>
                     <h3>JSON Formatter & Validator</h3>
                     <p>Format and validate JSON data</p>
-                    <a href="/json-formatter.html" class="tool-button">Use Tool</a>
+                    <a href="json-format.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🔢</div>
                     <h3>Base64 Encoder/Decoder</h3>
                     <p>Encode and decode Base64 strings</p>
-                    <a href="/base64-encoder.html" class="tool-button">Use Tool</a>
+                    <a href="base64-encoder.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🔗</div>
                     <h3>URL Encoder/Decoder</h3>
                     <p>Encode and decode URL strings</p>
-                    <a href="/url-encoder-decoder.html" class="tool-button">Use Tool</a>
+                    <a href="encoder-decoder.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🎨</div>
                     <h3>Color Picker & Converter</h3>
                     <p>Pick colors and convert between formats</p>
-                    <a href="/color-picker.html" class="tool-button">Use Tool</a>
+                    <a href="colore-picker.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">.*</div>
                     <h3>Regex Tester</h3>
                     <p>Test and debug regular expressions</p>
-                    <a href="/regex-tester.html" class="tool-button">Use Tool</a>
+                    <a href="regex-tester.html" class="tool-button">Use Tool</a>
                 </div>
             </div>
         </section>
@@ -829,37 +851,37 @@
                     <div class="tool-icon-container">🖼️</div>
                     <h3>Color Picker from Image</h3>
                     <p>Extract colors from any image</p>
-                    <a href="/color-picker-image.html" class="tool-button">Use Tool</a>
+                    <a href="color-picker-image.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🌈</div>
                     <h3>HEX to RGB Converter</h3>
                     <p>Convert between HEX and RGB color values</p>
-                    <a href="/hex-to-rgb.html" class="tool-button">Use Tool</a>
+                    <a href="hex-rgb.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">➖</div>
                     <h3>Gradient Generator</h3>
                     <p>Create beautiful CSS gradients</p>
-                    <a href="/gradient-generator.html" class="tool-button">Use Tool</a>
+                    <a href="gradient-converter.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">👁️</div>
                     <h3>Contrast Checker</h3>
                     <p>Check color contrast for accessibility</p>
-                    <a href="/contrast-checker.html" class="tool-button">Use Tool</a>
+                    <a href="contrast-checker.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🎨</div>
                     <h3>Palette Generator</h3>
                     <p>Generate harmonious color palettes</p>
-                    <a href="/palette-generator.html" class="tool-button">Use Tool</a>
+                    <a href="palette.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">👓</div>
                     <h3>Color Blindness Simulator</h3>
                     <p>See how colors look to colorblind users</p>
-                    <a href="/color-blindness-simulator.html" class="tool-button">Use Tool</a>
+                    <a href="blindness.html" class="tool-button">Use Tool</a>
                 </div>
             </div>
         </section>
@@ -875,19 +897,19 @@
                     <div class="tool-icon-container">🔍</div>
                     <h3>Keyword Density Checker</h3>
                     <p>Analyze keyword usage in your content</p>
-                    <a href="/keyword-density-checker.html" class="tool-button">Use Tool</a>
+                    <a href="keyword.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🏷️</div>
                     <h3>Meta Tag Analyzer</h3>
                     <p>Check and analyze meta tags</p>
-                    <a href="/meta-tag-analyzer.html" class="tool-button">Use Tool</a>
+                    <a href="meta-tag.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">📊</div>
                     <h3>Word Counter</h3>
                     <p>Count words, characters, and reading time</p>
-                    <a href="/word-counter.html" class="tool-button">Use Tool</a>
+                    <a href="word-counter1.html" class="tool-button">Use Tool</a>
                 </div>
             </div>
         </section>
@@ -903,37 +925,37 @@
                     <div class="tool-icon-container">📱</div>
                     <h3>QR Code Generator & Scanner</h3>
                     <p>Create and scan QR codes</p>
-                    <a href="/qr-code-generator.html" class="tool-button">Use Tool</a>
+                    <a href="qr-code.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">📊</div>
                     <h3>Barcode Generator</h3>
                     <p>Generate various barcode types</p>
-                    <a href="/barcode-generator.html" class="tool-button">Use Tool</a>
+                    <a href="barcode.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🆔</div>
                     <h3>UUID Generator</h3>
                     <p>Generate unique identifiers</p>
-                    <a href="/uuid-generator.html" class="tool-button">Use Tool</a>
+                    <a href="uuid.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">📏</div>
                     <h3>Unit Converter</h3>
                     <p>Convert between measurement units</p>
-                    <a href="/unit-converter.html" class="tool-button">Use Tool</a>
+                    <a href="unit-converter.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🌐</div>
                     <h3>Time Zone Converter</h3>
                     <p>Convert between time zones</p>
-                    <a href="/time-zone-converter.html" class="tool-button">Use Tool</a>
+                    <a href="time-zone.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🎲</div>
                     <h3>Random Number/Password Generator</h3>
                     <p>Generate random numbers or secure passwords</p>
-                    <a href="/random-password-generator.html" class="tool-button">Use Tool</a>
+                    <a href="random-password.html" class="tool-button">Use Tool</a>
                 </div>
             </div>
         </section>
@@ -949,25 +971,25 @@
                     <div class="tool-icon-container">🎵</div>
                     <h3>Audio Converter</h3>
                     <p>Convert between audio formats</p>
-                    <a href="/audio-converter.html" class="tool-button">Use Tool</a>
+                    <a href="audio-converter.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🎶</div>
                     <h3>Audio Compressor</h3>
                     <p>Reduce audio file size</p>
-                    <a href="/audio-compressor.html" class="tool-button">Use Tool</a>
+                    <a href="audio-compressor.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🎥</div>
                     <h3>Video Converter</h3>
                     <p>Convert between video formats</p>
-                    <a href="/video-converter.html" class="tool-button">Use Tool</a>
+                    <a href="video-convertor.html" class="tool-button">Use Tool</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">📹</div>
                     <h3>Video Compressor</h3>
                     <p>Reduce video file size</p>
-                    <a href="/video-compressor.html" class="tool-button">Use Tool</a>
+                    <a href="video-compressor.html" class="tool-button">Use Tool</a>
                 </div>
             </div>
         </section>
@@ -983,57 +1005,51 @@
                     <div class="tool-icon-container">🧩</div>
                     <h3>Puzzle Game</h3>
                     <p>Challenge your brain with puzzles</p>
-                    <a href="/puzzle.html" class="tool-button">Play Game</a>
+                    <a href="puzzle.html" class="tool-button">Play Game</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🎯</div>
                     <h3>Trivia Quiz</h3>
                     <p>Test your knowledge on various topics</p>
-                    <a href="/trivia-quiz.html" class="tool-button">Play Game</a>
+                    <a href="trivia-quiz.html" class="tool-button">Play Game</a>
                 </div>
                 <div class="tool-card">
                     <div class="tool-icon-container">🃏</div>
                     <h3>Card Games</h3>
                     <p>Classic card games to enjoy</p>
-                    <a href="/memory-card.html" class="tool-button">Play Game</a>
+                    <a href="memory-card.html" class="tool-button">Play Game</a>
                 </div>
             </div>
+           
         </section>
 
-        <!-- Articles & Resources -->
-        <section class="tools-section" id="articles">
-            <div class="section-header">
-                <h2>📝 Articles & Resources</h2>
-                <p>Explore our articles and resources for tips and insights</p>
-            </div>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon-container">📝</div>
-                    <h3>Articles Blog</h3>
-                    <p>Read our latest articles and resources</p>
-                    <a href="/article.html" class="tool-button">Read</a>
-                </div>
-            </div>
-        </section>
-    </div>
+   <section class="tools-section" id="Article">
+                     <div class="tool-card">
+                     <div class="tool-icon-container">🃏</div>
+                     <h2>Articles & Resources</h2>
+                     <p>Articles Blog</p>
+               <a href="article.html" class="tool-button">Read</a>         
+             </div>
+       </div>
+    </section>
 
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
-                    <a href="/" class="footer-logo">Smart Tools</a>
+                    <a href="#" class="footer-logo">Smart Tools</a>
                     <p>Simplifying your digital life with free online tools and fun games for all your needs.</p>
                     <div class="footer-contact">
                         <p>Contact us:</p>
-                        <p><a href="mailto:smartoolfun@gmail.com">smartoolfun@gmail.com</a></p>
+                        <p>smartoolfun@gmail.com</p>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="/tools.html">All Tools</a></li>
+                        <li><a href="#tools">All Tools</a></li>
                         <li><a href="#games">Games</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -1041,39 +1057,34 @@
                 <div class="footer-links">
                     <h3>Legal</h3>
                     <ul>
-                        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="/terms-of-use.html">Terms of Use</a></li>
-                        <li><a href="/cookie-policy.html">Cookie Policy</a></li>
-                        <li><a href="/about.html">About</a></li>
+                        <li><a href="Privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="term-of-use.html">Terms of Use</a></li>
+                        <li><a href="cookies-policy.html">Cookie Policy</a></li>
+                        <li><a href="about.html">About</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Smart Tool. All rights reserved.</p>
+                <p>&copy; 2025 Smart Tool. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
         // Mobile menu toggle functionality
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('nav');
-        mobileMenuBtn.addEventListener('click', () => {
-            const isExpanded = nav.style.display === 'block';
-            nav.style.display = isExpanded ? 'none' : 'block';
-            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
         });
         
         // Search functionality
-        document.getElementById('searchButton').addEventListener('click', (e) => {
-            e.preventDefault();
+        document.getElementById('searchButton').addEventListener('click', function() {
             performSearch();
         });
         
-        // Search when Enter key is pressed
-        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+        // Also search when Enter key is pressed
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                e.preventDefault();
                 performSearch();
             }
         });
@@ -1121,7 +1132,7 @@
         }
         
         // Close search results when clicking outside
-        document.addEventListener('click', (event) => {
+        document.addEventListener('click', function(event) {
             const searchContainer = document.querySelector('.search-container');
             if (!searchContainer.contains(event.target)) {
                 document.getElementById('searchResults').style.display = 'none';
@@ -1130,9 +1141,9 @@
 
         // Smooth scrolling for same-page links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = anchor.getAttribute('href');
+                const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
@@ -1144,7 +1155,7 @@
             });
         });
     </script>
-    <script async data-cfasync="false" src="//pl26986339.profitableratecpm.com/71d601cfbbb84e5be171a0cd071a7efd/invoke.js"></script>
-    <div id="container-71d601cfbbb84e5be171a0cd071a7efd"></div>
+ <script async="async" data-cfasync="false" src="//pl26986339.profitableratecpm.com/71d601cfbbb84e5be171a0cd071a7efd/invoke.js"></script>
+<div id="container-71d601cfbbb84e5be171a0cd071a7efd"></div> 
 </body>
 </html>
