@@ -1,32 +1,32 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J7B16QEP0T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J7B16QEP0T');
-</script>
-<script>
-    <meta property="og:title" content="SmarTool - Your Tool for Success">
-    <meta property="og:description" content="Discover innovative tools at SmarTool to boost productivity.">
-    <meta property="og:image" content="https://www.smartool.fun/images/og-image.jpg">
-    <meta property="og:url" content="https://www.smartool.fun">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SmarTool - Your Tool for Success">
-    <meta name="twitter:description" content="Discover innovative tools at SmarTool to boost productivity.">
-    <meta name="twitter:image" content="https://www.smartool.fun/images/og-image.jpg">
-</script>
-  <link rel="icon" href="IMG_1343.png" type="image/x-icon">
-  <title>Smartool - Age Calculator</title>
-  <meta name="description" content="Calculate your age accurately with Smartool's free online tool. Simple and precise.">
-  <h1>Age Calculator</h1>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Age Calculator</title>
+  <title>Smartool - Age Calculator</title>
+  <meta name="description" content="Calculate your exact age in years, months, and days. Free, fast, and accurate age calculator.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Smartool - Age Calculator">
+  <meta property="og:description" content="Find out your exact age in years, months, and days with our free online tool.">
+  <meta property="og:image" content="https://www.smartool.fun/images/og-image.jpg">
+  <meta property="og:url" content="https://www.smartool.fun">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="IMG_1343.png" type="image/x-icon">
+
+  <!-- Google Analytics (optional – keep if yours) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7B16QEP0T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J7B16QEP0T');
+  </script>
+
   <style>
     body {
       background: #f4f9ff;
@@ -34,59 +34,58 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
+      padding: 20px 0;
     }
-
     .container {
       background: #fff;
       padding: 30px;
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
       text-align: center;
       width: 90%;
-      max-width: 400px;
+      max-width: 420px;
     }
-
     h1 {
       color: #007bff;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      font-size: 1.8rem;
     }
-
     input[type="date"] {
-      padding: 10px;
+      padding: 12px;
       width: 100%;
-      font-size: 1rem;
+      font-size: 1.1rem;
       border: 1px solid #ccc;
       border-radius: 10px;
       margin-bottom: 20px;
+      box-sizing: border-box;
     }
-
     button {
-      padding: 10px 20px;
+      padding: 12px 28px;
       background-color: #007bff;
       color: #fff;
-      font-size: 1rem;
+      font-size: 1.1rem;
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      transition: 0.3s;
     }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-
+    button:hover { background-color: #0056b3; }
     #result {
-      margin-top: 20px;
-      font-size: 1.2rem;
+      margin: 20px 0;
+      font-size: 1.35rem;
       font-weight: bold;
-      color: #333;
+      color: #222;
+      min-height: 50px;
     }
-
+    .ad-banner {
+      margin: 30px auto;
+      text-align: center;
+    }
     @media (max-width: 600px) {
-      .container {
-        padding: 20px;
-      }
+      .container { padding: 20px; }
+      h1 { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -97,39 +96,77 @@
     <input type="date" id="dob" />
     <button onclick="calculateAge()">Calculate Age</button>
     <div id="result"></div>
+
+    <!-- Adsterra 300x250 Banner – appears only AFTER result is shown -->
+    <div class="ad-banner" id="adBanner" style="display:none;">
+      <script type="text/javascript">
+        atOptions = {
+          'key' : '<script type="text/javascript">
+	atOptions = {
+		'key' : '458d6b92fc71946a16d4d2bf6632fd12',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/458d6b92fc71946a16d4d2bf6632fd12/invoke.js"></script>',
+          'format' : 'iframe',
+          'height' : 250,
+          'width' : 300,
+          'params' : {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highcpmcreativeformat.com/REPLACE_WITH_YOUR_300x250_KEY/invoke.js"></script>
+    </div>
   </div>
+
+  <!-- Adsterra Popunder (highest revenue, runs once per visit) -->
+  <script type="text/javascript">
+    atOptions = {
+      'key' : '<script type='text/javascript' src='//pl28132108.effectivegatecpm.com/29/aa/b0/29aab010e4cffc42c556e40f9cbac24e.js'></script>',
+      'format' : 'pop',
+      'params' : {}
+    };
+  </script>
+  <script type="text/javascript" src="//www.highcpmcreativeformat.com/REPLACE_WITH_YOUR_POPUNDER_KEY/invoke.js"></script>
 
   <script>
     function calculateAge() {
-      const dob = document.getElementById("dob").value;
-      if (!dob) {
-        document.getElementById("result").innerText = "Please select your date of birth.";
+      const dobInput = document.getElementById("dob").value;
+      if (!dobInput) {
+        document.getElementById("result").innerHTML = "<span style='color:#d00;'>Please select your date of birth.</span>";
         return;
       }
 
-      const birthDate = new Date(dob);
+      const birthDate = new Date(dobInput);
       const today = new Date();
 
-      let ageYears = today.getFullYear() - birthDate.getFullYear();
-      let ageMonths = today.getMonth() - birthDate.getMonth();
-      let ageDays = today.getDate() - birthDate.getDate();
-
-      if (ageDays < 0) {
-        ageMonths--;
-        ageDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+      if (birthDate > today) {
+        document.getElementById("result").innerHTML = "<span style='color:#d00;'>Birth date cannot be in the future!</span>";
+        return;
       }
 
-      if (ageMonths < 0) {
-        ageYears--;
-        ageMonths += 12;
+      let years = today.getFullYear() - birthDate.getFullYear();
+      let months = today.getMonth() - birthDate.getMonth();
+      let days = today.getDate() - birthDate.getDate();
+
+      if (days < 0) {
+        months--;
+        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+      }
+      if (months < 0) {
+        years--;
+        months += 12;
       }
 
-      document.getElementById("result").innerText = `You are ${ageYears} years, ${ageMonths} months, and ${ageDays} days old.`;
+      document.getElementById("result").innerText = 
+        `You are ${years} years, ${months} months, and ${days} days old.`;
+
+      // Show the banner only after the user gets a result (higher engagement)
+      document.getElementById("adBanner").style.display = "block";
     }
   </script>
-<script async="async" data-cfasync="false" src="//pl26737445.profitableratecpm.com/f00930d77facf182d865414c70a791d5/invoke.js"></script>
-<div id="container-f00930d77facf182d865414c70a791d5"></div>
+
 </body>
 </html>
-
-  
